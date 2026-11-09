@@ -81,7 +81,7 @@ openssl enc -d -aes-256-cbc -in document.enc -out document_dechiffre.pdf -iv $(c
 ## Bonnes pratiques
 - Toujours privilégier **AES‑256** pour le chiffrement symétrique.
 - Éviter les modes ECB en production ; préférer CBC ou GCM.
-- Ne jamais transmettre une clé symétrique en clair (pargager la clé sur un canal sécurisé, ou utiliser Diffie-Hellman ou une variante)
+- Ne jamais transmettre une clé symétrique en clair (partager la clé sur un canal sécurisé, ou utiliser Diffie-Hellman ou une variante)
 - Utiliser RSA ou ECC uniquement pour les **petites données** ou l’échange de clés.
 
 Le chiffrement constitue l’un des fondements essentiels de la sécurité moderne, utilisé dans les VPN, les serveurs HTTPS, les disques chiffrés et les échanges confidentiels.
