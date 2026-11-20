@@ -1,9 +1,9 @@
 # Signature numérique
 
-La **signature numérique** permet de garantir l’authenticité d’un message et d’attester que son auteur ne peut pas nier l’avoir produit. Elle repose sur l’usage combiné d’une **clé privée** (pour signer) et d’une **clé publique** (pour vérifier).
+La **signature numérique** permet de garantir l’authentification d’un message et d’attester que son auteur ne peut pas nier l’avoir produit. Elle repose sur l’usage combiné d’une **clé privée** (pour signer) et d’une **clé publique** (pour vérifier).
 
 La signature apporte :
-- **Authenticité** : le message provient bien de l’émetteur déclaré.
+- **Authentification** : le message provient bien de l’émetteur déclaré.
 - **Non‑répudiation** : l’émetteur ne peut pas nier avoir signé le message.
 
 ---
