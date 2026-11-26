@@ -4,13 +4,13 @@
 
 ### Mot de passe 
 
-Avec SSH, l’authentification par mot de passe est l’un des mécanismes fondamentaux permettant à un utilisateur de prouver son identité lorsqu’il tente d’établir une connexion sécurisée à un serveur distant. Lorsqu’un utilisateur souhaite se connecter à un serveur via SSH, le client SSH (souvent un terminal ou une application dédiée) initie une requête de connexion vers le serveur. Le serveur, après avoir reçu cette requête, demande une authentification. Si l’authentification par mot de passe est activée sur le serveur, il invite l’utilisateur à entrer son mot de passe. Ce mot de passe est ensuite transmis sur le canal de communication chiffré grâce aux algorithmes négociés dans la phase de négociation cryptographique (voir section précédente). 
+Avec **SSH**, l’authentification par mot de passe est l’un des mécanismes fondamentaux permettant à un utilisateur de prouver son identité lorsqu’il tente d’établir une connexion sécurisée à un serveur distant. Lorsqu’un utilisateur souhaite se connecter à un serveur via SSH, le client SSH (souvent un terminal ou une application dédiée) initie une requête de connexion vers le serveur. Le serveur, après avoir reçu cette requête, demande une authentification. Si l’authentification par mot de passe est activée sur le serveur, il invite l’utilisateur à entrer son mot de passe. Ce mot de passe est ensuite transmis sur le canal de communication chiffré grâce aux algorithmes négociés dans la phase de négociation cryptographique (voir section précédente). 
 
 Contrairement aux connexions non sécurisées (comme Telnet), SSH chiffre toutes les données échangées, y compris le mot de passe. Cela signifie que même si un attaquant intercepte le trafic réseau, il ne pourra pas lire le mot de passe sans casser le chiffrement, ce qui est extrêmement improbable avec les algorithmes modernes comme AES. Malgré tout, l’authentification par mot de passe est généralement considérée comme moins sécuritaire que d’autres options, comme les clés publiques et les certificats. En effet, la sécurité repose aussi sur la robustesse du mot de passe choisi. Un mot de passe faible ou facile à deviner pourrait être compromis par des attaques par force brute ou par dictionnaire, rendant toute la sécurité du protocole SSH inopérante. 
 
-Sur le serveur SSH (souvent géré par sshd sous Linux), l’authentification par mot de passe peut être activée ou désactivée via le fichier de configuration /etc/ssh/sshd_config à l’aide de la directive PasswordAuthentication. Pour renforcer la sécurité, les administrateurs peuvent désactiver cette option et privilégier des méthodes plus robustes. De plus, des outils comme fail2ban peuvent être utilisés pour bloquer les adresses IP après plusieurs tentatives de connexion échouées, réduisant ainsi les risques d’attaques automatisées. 
+Sur le serveur SSH (souvent géré par **sshd** sous Linux), l’authentification par mot de passe peut être activée ou désactivée via le fichier de configuration `/etc/ssh/sshd_config` à l’aide de la directive `PasswordAuthentication`. Pour renforcer la sécurité, les administrateurs peuvent désactiver cette option et privilégier des méthodes plus robustes. De plus, des outils comme **fail2ban** peuvent être utilisés pour bloquer les adresses IP après plusieurs tentatives de connexion échouées, réduisant ainsi les risques d’attaques automatisées. 
 
-L’authentification par mot de passe est simple à mettre en œuvre et ne nécessite pas de configuration complexe côté client. Elle est donc idéale pour des environnements temporaires ou des utilisateurs peu expérimentés. Cependant, elle présente des limites importantes en termes de sécurité et ne permet pas aux outils d’automatisation (scripts, Ansible, Puppet, Chef, etc) d’établir une connexion sans l’intervention d’un administrateur. 
+L’authentification par mot de passe est simple à mettre en oeuvre et ne nécessite pas de configuration complexe côté client. Elle est donc idéale pour des environnements temporaires ou des utilisateurs peu expérimentés. Cependant, elle présente des limites importantes en termes de sécurité et ne permet pas aux outils d’automatisation (scripts, Ansible, Puppet, Chef, etc) d’établir une connexion sans l’intervention d’un administrateur. 
 
 Pour sécuriser l’authentification par mot de passe, il est recommandé d’utiliser des mots de passe longs, complexes, et uniques. L’ajout d’une couche d’authentification à deux facteurs (2FA) peut également renforcer la sécurité. Toutefois, dans les environnements professionnels ou critiques, il est préférable d’utiliser l’authentification par clé publique ou par certificats, qui reposent sur la cryptographie à clé publique et éliminent le besoin de transmettre un mot de passe. Ces méthodes sont non seulement plus sécurisées, mais aussi plus adaptées aux besoins grandissants d’automatisation sur les serveurs. 
 
@@ -46,8 +46,8 @@ ssh-keygen -t rsa -b 4096 -C "tux@maisonneuve.lan"
 
 Cela crée deux fichiers : 
 
-- **id_rsa** : la clé privée (à garder secrète) 
-- **id_rsa.pub** : la clé publique (à copier sur le serveur) 
+- `id_rsa` : la clé privée (à garder secrète) 
+- `id_rsa.pub` : la clé publique (à copier sur le serveur) 
 
 La clé publique est ensuite ajoutée au fichier `~/.ssh/authorized_keys` sur le serveur, par exemple avec la commande suivante:  
 
