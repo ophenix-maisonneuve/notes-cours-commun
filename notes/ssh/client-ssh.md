@@ -110,10 +110,10 @@ Le serveur web écoutant sur le port 8080 local serait alors disponible sur le s
 
 {: .highlight}
 > Pour que le service soit accessible pour tous, et non seulement pour la machine locale, on doit activer l’option GatewayPorts dans la configuration SSH: 
-
-```bash 
->> sudo nano /etc/ssh/sshd_config 
-```
-```bash
-GatewayPorts yes 
-```
+>
+>```bash 
+>sudo nano /etc/ssh/sshd_config 
+>```
+>```bash
+>GatewayPorts yes 
+>```
